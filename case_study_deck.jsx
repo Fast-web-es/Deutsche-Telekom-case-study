@@ -368,7 +368,7 @@ export default function CaseStudyDeck() {
       <div style={{ position: "fixed", bottom: 20, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: isMobile ? 8 : 6, zIndex: 10 }}>
         {slides.map((_, i) => (<div key={i} onClick={(e) => { e.stopPropagation(); setCurrent(i); }} style={{ width: i === current ? (isMobile ? 28 : 24) : (isMobile ? 10 : 8), height: isMobile ? 10 : 8, borderRadius: 5, background: i === current ? "var(--accent)" : "rgba(255,255,255,0.15)", transition: "all 0.3s ease", cursor: "pointer" }} />))}
       </div>
-      <div style={{ position: "fixed", bottom: 20, right: 30, fontSize: 12, fontFamily: "var(--mono)", color: "var(--muted)", zIndex: 10 }}>{current + 1} / {slides.length}</div>
+      <div style={{ position: "fixed", bottom: 20, right: 30, fontSize: 12, fontFamily: "var(--mono)", color: "var(--muted)", zIndex: 10 }}>{current} / {slides.length - 1}</div>
       <div style={{ position: "fixed", bottom: 20, left: 30, fontSize: 11, fontFamily: "var(--mono)", color: "rgba(255,255,255,0.2)", display: isMobile ? "none" : "block", zIndex: 10 }}>← → or click to navigate</div>
     </div>
   );
