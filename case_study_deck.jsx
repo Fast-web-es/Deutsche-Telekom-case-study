@@ -62,19 +62,19 @@ const slides = [
             zoom={1.3}
           />
         </div>
-        <div style={{ position: "absolute", top: 40, left: 40, fontSize: 13, letterSpacing: 3, color: "var(--muted)", fontFamily: "var(--mono)", textTransform: "uppercase", zIndex: 1 }}>Case Study</div>
-        <img src="/logo.png" alt="AR" style={{ width: 48, height: 48, objectFit: "contain", marginBottom: 12, opacity: 0.7, position: "relative", zIndex: 1 }} />
-        <div style={{ fontSize: 13, color: "var(--muted)", fontFamily: "var(--mono)", marginBottom: 24, position: "relative", zIndex: 1 }}>
+        <div style={{ position: "absolute", top: isMobile ? 24 : 40, left: isMobile ? 20 : 40, fontSize: isMobile ? 11 : 13, letterSpacing: isMobile ? 2 : 3, color: "var(--muted)", fontFamily: "var(--mono)", textTransform: "uppercase", zIndex: 1 }}>Case Study</div>
+        <img src="/logo.png" alt="AR" style={{ width: isMobile ? 44 : 48, height: isMobile ? 44 : 48, objectFit: "contain", marginBottom: 12, opacity: 0.7, position: "relative", zIndex: 1 }} />
+        <div style={{ fontSize: isMobile ? 12 : 13, color: "var(--muted)", fontFamily: "var(--mono)", marginBottom: isMobile ? 20 : 24, position: "relative", zIndex: 1 }}>
           Agustín Rüdegar
         </div>
-        <div style={{ width: 64, height: 3, background: "var(--accent)", margin: "0 auto 24px", position: "relative", zIndex: 1 }} />
-        <h1 style={{ fontSize: isMobile ? 36 : 52, fontWeight: 300, lineHeight: 1.15, fontFamily: "var(--display)", color: "var(--fg)", margin: 0, letterSpacing: -1, position: "relative", zIndex: 1 }}>
+        <div style={{ width: isMobile ? 48 : 64, height: 3, background: "var(--accent)", margin: isMobile ? "0 auto 20px" : "0 auto 24px", position: "relative", zIndex: 1 }} />
+        <h1 style={{ fontSize: isMobile ? 32 : 52, fontWeight: 300, lineHeight: 1.1, fontFamily: "var(--display)", color: "var(--fg)", margin: 0, letterSpacing: "-0.025em", position: "relative", zIndex: 1 }}>
           Designing an AI Concierge<br /><span style={{ fontWeight: 600 }}>for Healthcare</span>
         </h1>
-        <p style={{ fontSize: isMobile ? 15 : 18, color: "var(--muted)", marginTop: 20, fontFamily: "var(--body)", position: "relative", zIndex: 1, marginBottom: 24 }}>
-          How conversational AI can transform appointment scheduling<br />for a dental clinic in Buenos Aires
+        <p style={{ fontSize: isMobile ? 14 : 18, color: "var(--muted)", marginTop: isMobile ? 16 : 20, fontFamily: "var(--body)", position: "relative", zIndex: 1, marginBottom: 24, lineHeight: 1.5, maxWidth: isMobile ? 320 : "none" }}>
+          {isMobile ? "How conversational AI can transform appointment scheduling for a dental clinic in Buenos Aires" : <>How conversational AI can transform appointment scheduling<br />for a dental clinic in Buenos Aires</>}
         </p>
-        <div style={{ position: "absolute", bottom: isMobile ? 80 : 60, fontSize: 12, color: "var(--muted)", fontFamily: "var(--mono)", zIndex: 1, textTransform: "uppercase", letterSpacing: 2 }}>
+        <div style={{ position: "absolute", bottom: isMobile ? 70 : 60, fontSize: isMobile ? 10 : 12, color: "var(--muted)", fontFamily: "var(--mono)", zIndex: 1, textTransform: "uppercase", letterSpacing: 2 }}>
           Digital Designer <span style={{ color: "var(--accent)" }}>AI Experience</span>
         </div>
       </div>
@@ -307,10 +307,10 @@ const slides = [
             </div>
           ))}
         </div>
-        <p style={{ fontSize: isMobile ? 15 : 17, color: "var(--fg)", fontFamily: "var(--body)", lineHeight: 1.7, maxWidth: 640 }}>
-          Designing the future where art, intelligence, and automation converge —<br />
-          exploring the boundaries between what is human, what is artificial,<br />
-          and what lies beyond both.
+        <p style={{ fontSize: isMobile ? 14 : 17, color: "var(--fg)", fontFamily: "var(--body)", lineHeight: 1.65, maxWidth: 640, textWrap: "balance" }}>
+          {isMobile
+            ? "Designing the future where art, intelligence, and automation converge — exploring the boundaries between what is human, what is artificial, and what lies beyond both."
+            : <>Designing the future where art, intelligence, and automation converge —<br />exploring the boundaries between what is human, what is artificial,<br />and what lies beyond both.</>}
         </p>
         <div style={{ marginTop: 36, display: "flex", gap: isMobile ? 12 : 24, flexDirection: isMobile ? "column" : "row", fontSize: 13, color: "var(--muted)", fontFamily: "var(--mono)" }}>
           <a href="https://agustinrudegar.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>agustinrudegar.com</a><span style={{ color: "var(--border)" }}>·</span><a href="mailto:agustin.rudegar@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>agustin.rudegar@gmail.com</a>
@@ -362,7 +362,14 @@ export default function CaseStudyDeck() {
           animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .slide-inner::-webkit-scrollbar { display: none; }
-        .slide-inner { -ms-overflow-style: none; scrollbar-width: none; }
+        .slide-inner { -ms-overflow-style: none; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        * { -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        h1, h2 { text-wrap: balance; }
+        p, .body-prose { text-wrap: pretty; }
+        h1, h2, .display { letter-spacing: -0.015em; }
+        @media (max-width: 767px) {
+          .mobile-hide-br br { display: none; }
+        }
       `}</style>
       <div key={current} className={`slide-animate slide-inner`} style={{ width: "100%", flex: 1, minHeight: 0, overflowY: isMobile && slides[current].id !== "cover" ? "auto" : "visible", maxWidth: slides[current].id === "cover" ? "none" : 1100, margin: "0 auto", padding: slides[current].id === "cover" ? 0 : (isMobile ? "32px 20px 80px" : "40px 40px"), display: "flex", flexDirection: "column", justifyContent: isMobile ? "flex-start" : "center", boxSizing: "border-box" }}>{slides[current].render({ isMobile })}</div>
       <div style={{ position: "fixed", bottom: 20, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: isMobile ? 8 : 6, zIndex: 10 }}>
