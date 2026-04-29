@@ -172,7 +172,7 @@ const slides = [
               <Bubble side="right" text="I don't have any studies yet" index={2} />
               <Bubble side="left" text="I'd recommend getting a panoramic X-ray before the appointment. Meanwhile, I can schedule you with the implant specialist. Shall I proceed?" index={3} />
               <Bubble side="right" text="Yes, please book it" index={4} />
-              <Bubble side="left" text="Done! Monday at 3:00 PM with the implant specialist. Cost: $500. I'll send a reminder 24h before. See you there!" index={5} />
+              <Bubble side="left" text="Done! Monday 3:00 PM with Dr. Avalos, specialist in implantology. The cost is $500. I will send you a reminder 24h before. See you then!" index={5} />
               <Bubble side="right" text="Perfect, thank you!" index={6} />
             </div>
           </div>
