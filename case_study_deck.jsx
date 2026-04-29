@@ -252,10 +252,10 @@ const slides = [
               <Bubble side="right" text="Do you have small star screwdrivers?" index={0} />
               <Bubble side="left" text={"Here are the closest options:\n\n1. ALLEN STAR T15 — 86.50 Bs\n2. ALLEN STAR T20 — 114.94 Bs\n3. ALLEN STAR T25 — 94.80 Bs\n\nWould you like any of these?"} index={1} />
               <Bubble side="right" text="Do you have Milwaukee brand?" index={2} />
-              <Bubble side="left" text="I don't have Milwaukee right now. I can offer TOTAL and similar brands. Want to see alternatives?" index={3} />
-              <Bubble side="right" text="I'll go with option 2" index={4} />
+              <Bubble side="left" text="I don't have screwdrivers from Milwaukee right now. I can offer you screwdrivers from TOTAL and similar brands. Would you like to see alternatives?" index={3} />
+              <Bubble side="right" text="No, thank you! I'll go with option 2 from before" index={4} />
               <Bubble side="left" text={"Order summary:\n\n• ALLEN STAR T20 SECURITY\n• Qty: 1 — Price: 114.94 Bs\n\nI need your name, phone, payment method, and delivery preference."} index={5} />
-              <Bubble side="right" text="Roberto Gomez, delivery please" index={6} />
+              <Bubble side="right" text="Roberto Gomez, 65532100, cash, delivery to my home, please" index={6} />
             </div>
           </div>
         </div>
